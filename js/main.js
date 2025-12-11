@@ -31,10 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.querySelector('.gallery-nav.prev');
     const nextBtn = document.querySelector('.gallery-nav.next');
     const galleryImages = [
-        { src: 'assets/group-1000004111.png', alt: 'Product composition' },
-        { src: 'assets/pexels-pixabay-264870-1-2.png', alt: 'Product detail' },
-        { src: 'assets/pexels-pixabay-264950-1.png', alt: 'Product detail' },
-        { src: 'assets/pexels-rethaferguson-3059609-2-2.png', alt: 'Product detail' }
+        { src: 'assets/product-main.png', alt: 'Product composition' },
+        { src: 'assets/bottle-arose.png', alt: 'Product detail' },
+        { src: 'assets/bottle-amber.png', alt: 'Product detail' },
+        { src: 'assets/bottle-bella.png', alt: 'Product detail' }
     ];
     let galleryIndex = 0;
 
@@ -209,3 +209,4 @@ document.addEventListener('DOMContentLoaded', () => {
         counters.forEach(runCounter);
     }
 });
+
