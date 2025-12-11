@@ -31,10 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.querySelector('.gallery-nav.prev');
     const nextBtn = document.querySelector('.gallery-nav.next');
     const galleryImages = [
-        { src: 'assets/product-main.png', alt: 'Product composition' },
-        { src: 'assets/bottle-arose.png', alt: 'Product detail' },
-        { src: 'assets/bottle-amber.png', alt: 'Product detail' },
-        { src: 'assets/bottle-bella.png', alt: 'Product detail' }
+        { src: 'assets/product-main.webp', alt: 'Product composition' },
+        { src: 'assets/bottle-arose.webp', alt: 'Product detail' },
+        { src: 'assets/bottle-amber.webp', alt: 'Product detail' },
+        { src: 'assets/bottle-bella.webp', alt: 'Product detail' }
     ];
     let galleryIndex = 0;
 
