@@ -1033,7 +1033,7 @@ ul {
     display: grid;
     grid-template-columns: 171px 171px 171px 1fr;
     gap: 2.5rem;
-    margin-top: 5.4rem;
+    margin-top: 2.4rem;
 }
 
 .footer-nav {
