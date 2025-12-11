@@ -330,7 +330,8 @@ ul {
     width: 100%;
     height: 520px;
     border-radius: 12px;
-    object-fit: cover;
+    object-fit: contain;
+    background: transparent;
 }
 
 .gallery-nav {
