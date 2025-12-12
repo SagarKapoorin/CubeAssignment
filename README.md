@@ -1,4 +1,5 @@
 # Cube Frontend Assignment
+Website Link : https://gtgshop.netlify.app
 
 Responsive single-page build from the provided Figma design using vanilla HTML, CSS, and JavaScript.
 
@@ -11,10 +12,10 @@ Responsive single-page build from the provided Figma design using vanilla HTML, 
 - Assets exported/optimized from Figma; lazy loading applied where appropriate; no frameworks or external deps.
 
 ## Project Structure
-- index.html — main page markup and semantic structure.
-- css/style.css — styling, layout system, breakpoints, and component states.
-- js/main.js — gallery logic, radio handling, subscription toggles, add-to-cart mapping, and counter animation.
-- assets/ — exported images/icons used across the page.
+- index.html â€” main page markup and semantic structure.
+- css/style.css â€” styling, layout system, breakpoints, and component states.
+- js/main.js â€” gallery logic, radio handling, subscription toggles, add-to-cart mapping, and counter animation.
+- assets/ â€” exported images/icons used across the page.
 
 ## Getting Started
 - Open `index.html` in a modern browser; no build step or package install required.
