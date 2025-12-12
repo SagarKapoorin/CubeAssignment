@@ -19,7 +19,7 @@ body {
 }
 
 .container-narrow {
-    max-width: 950px;
+    max-width: 1120px;
     margin: 0 auto;
     padding: 0 1rem;
 }
@@ -909,7 +909,7 @@ ul {
 
 
 .comparison-section {
-    padding: 4rem 0;
+    padding: 4rem 0 3rem;
     display: flex;
     justify-content: center;
 }
@@ -919,20 +919,13 @@ ul {
     flex-direction: column;
     align-items: center;
     gap: 2.5rem;
-    margin-bottom: 3.5rem;
-}
-
-.divider {
-    font-family: 'Oxanium', sans-serif;
-    font-weight: 300;
-    font-size: 40px;
-    color: #032e15;
+    margin-bottom: 2.75rem;
 }
 
 .section-header h2 {
-    font-size: 2.25rem;
-    font-weight: 600;
-    color: #032e15;
+    font-size: 32px;
+    font-weight: 700;
+    color: #044422;
     text-align: center;
 }
 
@@ -945,23 +938,24 @@ ul {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    border: 1px solid #e5e5e5;
-    border-radius: 16px;
-    overflow: hidden;
+    border: none;
 }
 
 .comparison-table th,
 .comparison-table td {
     text-align: center;
-    padding: 1.1rem 0.75rem;
-    font-size: 16px;
-    font-weight: 300;
-    color: #666666;
-    border-bottom: 1px solid #e5e5e5;
+    padding: 1.05rem 1.75rem;
+    border-bottom: 1.01px solid #666666;
 }
 
 .comparison-table thead th {
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1.01px solid #666666;
+    color: #6a6a6a;
+    font-weight: 500;
+}
+
+.comparison-table thead th.brand.featured {
+    border-bottom: 1.01px dotted #322D2D;
 }
 
 .comparison-table tbody tr:last-child th,
@@ -972,52 +966,183 @@ ul {
 .comparison-table th.row-label {
     text-align: left;
     padding-left: 1rem;
+    font-family: Inter;
+font-weight: 700;
+font-style: Bold;
+font-size: 16px;
+line-height: 22.99px;
+letter-spacing: 0px;
+
+    color: #322D2D;
+;
+}
+
+.comparison-table tbody th[scope="row"] {
+    text-align: left;
+    padding-left: 1rem;
     font-weight: 700;
-    color: #322d2d;
+    color: #666666;
+;
+}
+
+.comparison-table tbody tr:not(:last-child) td.featured {
+    border-bottom: 1.01px dotted #322D2D;
+}
+
+.comparison-table tbody tr:not(:first-child) th,
+.comparison-table tbody tr:not(:first-child) td {
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
 }
 
 .comparison-table .brand {
-    font-weight: 700;
-    color: #322d2d;
+    font-weight: 500;
+    color: #7a7a7a;
     background: white;
 }
 
-.comparison-table th.brand span {
-    display: block;
-    margin-top: 0.35rem;
+.brand-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.65rem;
 }
 
-.comparison-table .brand img {
-    width: 88px;
-    height: 88px;
-    border-radius: 1rem;
+.brand-thumb {
+    width: 116px;
+    height: 120px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e6e6e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f8f8;
+}
+
+.brand-card img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     display: block;
-    margin: 0 auto 0.4rem;
 }
 
-.comparison-table .brand.featured,
+.brand-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: #8a8a8a;
+}
+
+.featured-card {
+    padding: 0.25rem 0;
+}
+
+.featured-card .brand-thumb {
+    background: #f0faf4;
+    border: 1px solid #dbe9e1;
+}
+
+.featured-card .brand-name {
+    color: #032e15;
+    font-family: Inter;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.comparison-table th.brand.featured,
 .comparison-table td.featured {
-    background: #f0fdf4;
+    background: #f0faf4;
+    border-left: 1px solid #dbe9e1;
+    border-right: 1px solid #dbe9e1;
 }
 
-.comparison-table td svg {
-    display: block;
-    margin: 0 auto;
+.comparison-table th.brand.featured {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
 }
 
-.table-icon {
-    width: 28px;
-    height: 28px;
-    display: block;
-    margin: 0 auto;
+.comparison-table tbody tr:last-child td.featured {
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+.pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Inter;
+font-weight: 300;
+font-size: 16px;
+line-height: 19.16px;
+letter-spacing: 0px;
+text-align: center;
+color:#666666;
+}
+
+
+.pill_new {
+    font-family: Inter;
+font-weight: 300;
+font-size: 16px;
+line-height: 19.16px;
+letter-spacing: 0px;
+text-align: center;
+color:#666666;
+}
+
+
+
+.status-dot {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid #1f1f1f;
+    color: #1f1f1f;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.status-dot.success {
+    background: transparent;
+    color: #1f1f1f;
+    border-color: #1f1f1f;
+    background-image: url("../assets/icon-tick.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 15px;
+    filter: brightness(0) saturate(100%);
+}
+
+.status-dot.error {
+    background: transparent;
+    background-image: url("../assets/icon-cross.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 11px;
+}
+
+.comparison-table td.featured .status-dot.success {
+    background-color: #032e15;
+    border-color: #032e15;
+    filter: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 15px;
+    background-image: url("data:image/svg+xml,%3Csvg width='17' height='13' viewBox='0 0 17 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.7 5.6L5.2 10.1L15.3 0.9' stroke='%23FFFFFF' stroke-width='1.2'/%3E%3C/svg%3E");
 }
 
 .comparison-section .btn-primary {
     display: block;
     margin: 0 auto;
 }
-
 
 .footer {
     background: #032e15;
