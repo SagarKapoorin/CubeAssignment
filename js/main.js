@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded',() => {
+    // console.log('Booting UI scripts (nav, gallery, subs)');
     document.querySelectorAll('.accordion-header').forEach(header => {
         header.addEventListener('click', () => {
             const item = header.parentElement;
@@ -7,30 +8,30 @@ document.addEventListener('DOMContentLoaded',() => {
             if (!isActive) item.classList.add('active');
         });
     });
-
-    const hamburger = document.querySelector('.hamburger');
-    const header = document.querySelector('.header');
-    const navLinks = document.querySelectorAll('.nav a');
-    if (hamburger && header) {
+const hamburger = document.querySelector('.hamburger');
+     const header = document.querySelector('.header');
+const navLinks = document.querySelectorAll('.nav a');
+        if (hamburger && header) {
         hamburger.addEventListener('click', () => {
             header.classList.toggle('nav-open');
             hamburger.classList.toggle('open');
+            // console.log('hamburger toggled', header.classList.contains('nav-open'));
         });
-
         navLinks.forEach(link => {
-            link.addEventListener('click', () => {
+                    link.addEventListener('click', () => {
                 header.classList.remove('nav-open');
                 hamburger.classList.remove('open');
+                // console.log('nav link closed menu');
             });
         });
     }
-
-    const galleryMain = document.querySelector('.gallery-main');
-    const dots = Array.from(document.querySelectorAll('.gallery-dots .dot'));
-    const thumbs = Array.from(document.querySelectorAll('.thumb'));
-    const prevBtn = document.querySelector('.gallery-nav.prev');
-    const nextBtn = document.querySelector('.gallery-nav.next');
-    const galleryImages = [
+      const galleryMain = document.querySelector('.gallery-main');
+    //console.log('gallery images', galleryImages?.length || 'n/a');
+const dots = Array.from(document.querySelectorAll('.gallery-dots .dot'));
+     const thumbs = Array.from(document.querySelectorAll('.thumb'));
+     const prevBtn = document.querySelector('.gallery-nav.prev');
+  const nextBtn = document.querySelector('.gallery-nav.next');
+     const galleryImages = [
         { src: 'assets/product-main.webp', alt: 'Product composition' },
         { src: 'assets/bottle-arose.webp', alt: 'Product detail' },
         { src: 'assets/bottle-amber.webp', alt: 'Product detail' },
@@ -40,7 +41,7 @@ document.addEventListener('DOMContentLoaded',() => {
 
     const setGalleryImage = (index, direction = 0) => {
         galleryIndex = (index + galleryImages.length) % galleryImages.length;
-        if (galleryMain) {
+                if (galleryMain) {
             galleryMain.classList.remove('slide-left', 'slide-right');
             void galleryMain.offsetWidth; // force reflow to restart animation
             if (direction < 0) galleryMain.classList.add('slide-left');
@@ -50,23 +51,23 @@ document.addEventListener('DOMContentLoaded',() => {
         if (galleryMain) {
             galleryMain.src = item.src;
             galleryMain.alt = item.alt;
-            galleryMain.dataset.index = String(galleryIndex);
+                   galleryMain.dataset.index = String(galleryIndex);
         }
-        dots.forEach(dot => dot.classList.toggle('active', Number(dot.dataset.index) === galleryIndex));
+dots.forEach(dot => dot.classList.toggle('active', Number(dot.dataset.index) === galleryIndex));
         thumbs.forEach(thumb => thumb.classList.remove('active'));
         const firstMatch = thumbs.find(thumb => Number(thumb.dataset.index) === galleryIndex);
         if (firstMatch) firstMatch.classList.add('active');
+        // console.log('set image ->', galleryIndex,'dir',direction);
     };
-
-    dots.forEach(dot => {
+ 
+        dots.forEach(dot => {
         dot.addEventListener('click', () => {
             const target = Number(dot.dataset.index);
             const dir = target > galleryIndex ? 1 : -1;
             setGalleryImage(target, dir);
         });
     });
-
-    thumbs.forEach(thumb => {
+thumbs.forEach(thumb => {
         thumb.addEventListener('click', () => {
             const target = Number(thumb.dataset.index);
             const dir = target > galleryIndex ? 1 : -1;
@@ -74,15 +75,15 @@ document.addEventListener('DOMContentLoaded',() => {
         });
     });
 
-    if (prevBtn) prevBtn.addEventListener('click', () => setGalleryImage(galleryIndex - 1, -1));
-    if (nextBtn) nextBtn.addEventListener('click', () => setGalleryImage(galleryIndex + 1, 1));
+      if (prevBtn) prevBtn.addEventListener('click', () => setGalleryImage(galleryIndex - 1, -1));
+           if (nextBtn) nextBtn.addEventListener('click', () => setGalleryImage(galleryIndex + 1, 1));
 
     setGalleryImage(0, 0);
 
     const fragranceGroups = document.querySelectorAll('.fragrance-options');
     fragranceGroups.forEach(group => {
         const options = group.querySelectorAll('.fragrance-option');
-        options.forEach(option => {
+    options.forEach(option => {
             option.addEventListener('click', () => {
                 options.forEach(opt => opt.classList.remove('active'));
                 option.classList.add('active');
@@ -97,31 +98,28 @@ document.addEventListener('DOMContentLoaded',() => {
     const detailBlocks = document.querySelectorAll('.subscription-details');
 
     const showSubscriptionDetails = (value) => {
-        detailBlocks.forEach(block => {
-            block.classList.toggle('open', block.dataset.subscription === value);
+        detailBlocks.forEach(block => { 
+                   block.classList.toggle('open', block.dataset.subscription === value);
         });
         document.querySelectorAll('.subscription-card').forEach(card => {
             card.classList.toggle('selected', card.querySelector(`input[name="subscription"][value="${value}"]`)?.checked);
         });
     };
-
-    subscriptionRadios.forEach(radio => {
+subscriptionRadios.forEach(radio => {
         radio.addEventListener('change', () => {
             showSubscriptionDetails(radio.value);
             updateCartLink();
         });
     });
 
-    const getSelectedSubscription = () => {
+        const getSelectedSubscription = () => {
         const active = document.querySelector('input[name="subscription"]:checked');
         return active ? active.value : 'single';
     };
-
     const getSelectedPurchaseType = () => {
         const active = document.querySelector('input[name="purchaseType"]:checked');
         return active ? active.value : 'one-time';
     };
-
     const getFragranceFromGroup = (group) => {
         if (!group) return '';
         const active = group.querySelector('.fragrance-option.active input[type="radio"]');
@@ -129,8 +127,7 @@ document.addEventListener('DOMContentLoaded',() => {
         const checked = group.querySelector('input[type="radio"]:checked');
         return checked ? checked.value : '';
     };
-
-    const getSelectedFragrances = (plan) => {
+const getSelectedFragrances = (plan) => {
         const detail = document.querySelector(`.subscription-details[data-subscription="${plan}"]`);
         const primaryGroup = detail?.querySelector('.fragrance-options[data-role="primary"]');
         const secondaryGroup = detail?.querySelector('.fragrance-options[data-role="secondary"]');
@@ -156,6 +153,13 @@ document.addEventListener('DOMContentLoaded',() => {
     purchaseTypeRadios.forEach(radio => radio.addEventListener('change', updateCartLink));
     updateCartLink();
 
+        
+    
+    
+    
+    
+    
+    
     const newsletterForm = document.querySelector('.newsletter-form');
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', (e) => {
@@ -197,7 +201,6 @@ document.addEventListener('DOMContentLoaded',() => {
             el.textContent = `${current}%`;
         }, 20);
     };
-
     if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
