@@ -117,6 +117,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return active ? active.value : 'single';
     };
 
+    const getSelectedPurchaseType = () => {
+        const active = document.querySelector('input[name="purchaseType"]:checked');
+        return active ? active.value : 'one-time';
+    };
+
     const getFragranceFromGroup = (group) => {
         if (!group) return '';
         const active = group.querySelector('.fragrance-option.active input[type="radio"]');
@@ -139,13 +144,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateCartLink = () => {
         if (!cartLink) return;
         const plan = getSelectedSubscription();
+        const purchaseType = getSelectedPurchaseType();
         const { primary, secondary } = getSelectedFragrances(plan);
-        let url = `https://example.com/cart?plan=${plan}&fragrance=${primary}`;
+        let url = `https://example.com/cart?plan=${plan}&purchase=${purchaseType}&fragrance=${primary}`;
         if (secondary) url += `&fragrance2=${secondary}`;
         cartLink.href = url;
     };
 
     showSubscriptionDetails(getSelectedSubscription());
+    const purchaseTypeRadios = document.querySelectorAll('input[name="purchaseType"]');
+    purchaseTypeRadios.forEach(radio => radio.addEventListener('change', updateCartLink));
     updateCartLink();
 
     const newsletterForm = document.querySelector('.newsletter-form');
@@ -209,4 +217,3 @@ document.addEventListener('DOMContentLoaded', () => {
         counters.forEach(runCounter);
     }
 });
-

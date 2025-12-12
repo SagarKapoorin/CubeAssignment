@@ -746,6 +746,53 @@ ul {
     font-weight: 700;
 }
 
+.purchase-type {
+    margin-top: 1.25rem;
+}
+
+.purchase-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.75rem;
+}
+
+.purchase-option {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.9rem 1rem;
+    border: 1px solid #b7b7b7;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.purchase-option:hover {
+    border-color: #032e15;
+    box-shadow: 0 6px 18px rgba(3, 46, 21, 0.06);
+}
+
+.purchase-option input[type="radio"] {
+    width: 17px;
+    height: 17px;
+    accent-color: #032e15;
+}
+
+.purchase-option span {
+    font-size: 16px;
+    font-weight: 300;
+    color: #032e15;
+}
+
+.purchase-option input[type="radio"]:checked + span {
+    font-weight: 600;
+    background: linear-gradient(180deg, rgba(3,46,21,0.6) 0%, rgba(1,102,48,0.6) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
 
 .collection-section {
     padding: 4rem 0;
